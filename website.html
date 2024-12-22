@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for All Families (HAF)</title>
+    <script>
+    const translations = {
+        en: {
+            title: "Welcome to Hope for All Families (HAF)",
+            about: "About Us",
+            aboutContent: "Hope for All Families (HAF) is a volunteer organization composed of middle and high school students. We are dedicated to helping multinational children by providing support, resources, and opportunities for a brighter future. Our mission is to inspire and empower youth to make a difference in their communities and beyond.",
+            projects: "Our Projects",
+            projectsList: [
+                "Academic Tutoring for Multinational Students",
+                "Cultural Exchange and Integration Programs",
+                "School Supplies Donation Drives",
+                "Mentorship Programs for Personal Growth"
+            ],
+            donate: "Support Us",
+            donateContent: "Your donations help us continue our work and support more children in need. Click the button below to make a contribution.",
+            contact: "Contact Us",
+            contactContent: "If you have any questions or would like to get involved, feel free to reach out to us.",
+            contactEmail: "Email: hafkorea@gmail.com",
+            contactPhone: "Phone: +82 10-2446-4975",
+            footer: "All Rights Reserved."
+        },
+        ko: {
+            title: "Welcome to Hope for All Families\(HAF)",
+            about: "소개",
+            aboutContent: "Hope for All Families (HAF)는 중고등학생들로 구성된 자원 봉사 단체입니다. 우리는 다국적 어린이들에게 밝은 미래를 제공하기 위해 지원, 자원 및 기회를 제공합니다. 우리의 사명은 청소년들에게 지역 사회와 그 너머에서 변화를 만들도록 영감을 주고 힘을 실어주는 것입니다.",
+            projects: "프로젝트",
+            projectsList: [
+                "다국적 학생들을 위한 학업 지도",
+                "문화 교류 및 통합 프로그램",
+                "학용품 기부 캠페인",
+                "개인 성장을 위한 멘토링 프로그램"
+            ],
+            donate: "후원",
+            donateContent: "여러분의 기부는 우리가 활동을 지속하고 더 많은 어린이들을 지원하는 데 큰 도움이 됩니다. 아래 버튼을 클릭하여 기부해 주세요.",
+            contact: "연락처",
+            contactContent: "질문이 있거나 참여를 원하시면 언제든지 연락해 주세요.",
+            contactEmail: "이메일: hafkorea@gmail.com",
+            contactPhone: "전화: +82 10-2446-4975",
+            footer: "모든 권리 보유."
+        }
+    };
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    function changeLanguage(language) {
+        document.getElementById('title').innerText = translations[language].title;
+        document.getElementById('about').innerText = translations[language].about;
+        document.getElementById('about-content').innerText = translations[language].aboutContent;
+        document.getElementById('projects').innerText = translations[language].projects;
+
+        const projectsList = document.getElementById('projects-list');
+        projectsList.innerHTML = '';
+        translations[language].projectsList.forEach(project => {
+            const li = document.createElement('li');
+            li.innerText = project;
+            projectsList.appendChild(li);
+        });
+
+        document.getElementById('donate').innerText = translations[language].donate;
+        document.getElementById('donate-content').innerText = translations[language].donateContent;
+        document.getElementById('contact').innerText = translations[language].contact;
+        document.getElementById('contact-content').innerText = translations[language].contactContent;
+        document.getElementById('contact-email').innerText = translations[language].contactEmail;
+        document.getElementById('contact-phone').innerText = translations[language].contactPhone;
+        document.getElementById('footer').innerText = translations[language].footer;
+    }
+
+    function toggleLanguageMenu() {
+        const menu = document.getElementById('language-menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.onload = function () {
+        showSection('about');
+        changeLanguage('en');
+    };
+window.addEventListener('scroll', function() {
+            const footer = document.querySelector('footer');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.style.bottom = '0';
+            } else {
+                footer.style.bottom = '-100px';
+            }
+        });
+    </script>
+</script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #ffefd5, #d7f4ff);
+            color: #333;
+            border-radius: 10px;
+        }
+        header {
+            background: white;
+            color: #333;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        nav a {
+            color: white;
+            flex-grow: 0;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .language-dropdown {
+            position: relative;
+        }
+        .language-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .language-button:hover {
+            background-color: #218838;
+        }
+        #language-menu {
+            display: none;
+            position: absolute;
+            background: #fff;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            z-index: 1000;
+            margin-top: 10px;
+            padding: 10px;
+            list-style: none;
+        }
+        #language-menu button {
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+        }
+        #language-menu button:hover {
+            background: #f0f0f0;
+        }
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hero {
+            background: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            border-radius: 10px;
+            position: fixed;
+            bottom: -100px;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            transition: bottom 0.5s ease-in-out;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div style="display: flex; justify-content: center; align-items: center; padding: 0 20px;">
+            <img src="https://ifh.cc/g/LHgkdV.png" alt="HAF Logo" style="height: 80px; margin-right: 10px; cursor: pointer;" onclick="showAllSections()">
+            <h1 id="title" style="color: #555;">Welcome to Hope for All Families (HAF)</h1>
+        </div>
+        </div>
+    </header>
+    </header>
+
+    <nav>
+        <a id="about" href="#" onclick="showSection('about')">About Us</a>
+        <a id="projects" href="#" onclick="showSection('projects')">Projects</a>
+        <a id="donate" href="#" onclick="showSection('donate')">Donate</a>
+        <a id="contact" href="#" onclick="showSection('contact')">Contact</a>
+        <div class="language-dropdown">
+            <button class="language-button" onclick="toggleLanguageMenu()">Language</button>
+            <div id="language-menu">
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('ko')">한국어</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="content-section">
+            <div class="hero" style="overflow: hidden;">
+                <h2 id="about">About Us</h2>
+                
+                <p id="about-content">Hope for All Families (HAF) is a volunteer organization composed of middle and high school students. We are dedicated to helping multinational children by providing support, resources, and opportunities for a brighter future. Our mission is to inspire and empower youth to make a difference in their communities and beyond.</p>
+                <h3>Logo Story</h3>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="https://ifh.cc/g/LHgkdV.png" alt="HAF Logo" style="width: 200px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section" style="display: none;">
+            <h2 id="projects">Our Projects</h2>
+            <ul id="projects-list">
+                <li>Academic Tutoring for Multinational Students</li>
+                <li>Cultural Exchange and Integration Programs</li>
+                <li>School Supplies Donation Drives</li>
+                <li>Mentorship Programs for Personal Growth</li>
+            </ul>
+        </section>
+
+        <section id="donate" class="content-section" style="display: none;">
+            <h2 id="donate">Support Us</h2>
+            <p id="donate-content">Your donations help us continue our work and support more children in need. Click the button below to make a contribution.</p>
+            <button onclick="alert('Thank you for your support!')">Donate Now</button>
+        </section>
+
+        <section id="contact" class="content-section" style="display: none;">
+            <h2 id="contact">Contact Us</h2>
+            <p id="contact-content">If you have any questions or would like to get involved, feel free to reach out to us.</p>
+            <p id="contact-email">Email: hafkorea@gmail.com</p>
+            <p id="contact-phone">Phone: +82 10-2446-4975</p>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p id="footer">Copyright 2024 All Rights Reserved.</p>
+    </footer>
+
+</div>
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    function showAllSections() {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            section.style.display = 'block';
+        });
+    }
+
+    window.onload = function () {
+        showSection('about');
+    };
+</script>
+</script>
+</body>
+</html>
